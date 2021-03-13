@@ -34,6 +34,14 @@ function Dungeon:generateDungeon(advanced, maxRooms, maxRoomSize, scatteringFact
   end
 end
 
+function Dungeon:toTable(index)
+  if index == nil then
+    index = 1
+  end
+  
+  return dungeon.levels[index]:toTable()
+end
+
 function Dungeon:printDungeon()
   for i=1,#dungeon.levels do
       local s = "L E V E L  "..i

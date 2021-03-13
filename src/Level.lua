@@ -96,6 +96,21 @@ function Level:printLevel ()
 
 -- ##### -- ##### -- ##### -- ##### -- ##### -- ##### -- ##### -- ##### -- ##### -- 
 
+  function Level:toTable ()
+    local levelTable = {}
+
+    for i=1,self.height do
+      levelTable[i] = {}
+      for j=1,self.width do
+        levelTable[i][j] = self.matrix[i][j].class..Tile.EMPTY
+      end
+    end
+
+    return levelTable
+  end
+
+-- ##### -- ##### -- ##### -- ##### -- ##### -- ##### -- ##### -- ##### -- ##### -- 
+
 function Level:getRandRoom()
   -- return: Random room in level
   local i = random(1,#self.rooms)
